@@ -10,6 +10,7 @@ This project aims to solve the Flix Challenge.
     * [Environment Variables](#environment-variables)
     * [Kafka Cluster](#kafka-cluster)
     * [Create Kafka Topics and Populate Input Topic](#create-kafka-topics-and-populate-input-topic)
+    * [Python Transformer Application](#python-transformer-application)
     * [Challenge Output](#challenge-output)
   * [Challenge Explained](#challenge-explained)
     * [Kafka Cluster and App](#1-kafka-cluster-and-app)
@@ -130,6 +131,18 @@ Or run:
 ````shell
 ./kafka_cli/ingest_data.sh
 ````
+
+#### Python Transformer Application
+Alternatively, one can start the Kafka Cluster without the app:
+````shell
+docker-compose up -d zookeeper kafka
+````
+And then start the python application:
+
+````shell
+docker-compose up --no-deps app 
+````
+
 #### Challenge Output:
 To check if the messages were correctly writen to the output topic:
 ````shell
@@ -142,21 +155,21 @@ docker exec kafka kafka-console-consumer.sh --bootstrap-server kafka:9092 --topi
 File: [docker-compose.yml](docker-compose.yml)
 
 To provided example was used to setup the local kafka cluster using docker-compose.
-To "Dockerize your application, so it can be run with Docker" a container, named app was added.
-This way we can start all containers with docker-compose.
+To "Dockerize your application, so it can be run with Docker" a container, named app, was added.
+This way one can start all containers with docker-compose.
 
 ```` dockerfile
 app:
-    build:
-      context: ./local_kafka
-      dockerfile: Dockerfile
-    container_name: app
-    env_file:
-      - local_kafka/local_kafka.env
-    depends_on:
-      - kafka
-    networks:
-      - app-tier
+  build:
+    context: ./local_kafka
+    dockerfile: Dockerfile
+  container_name: app
+  env_file:
+    - local_kafka/local_kafka.env
+  depends_on:
+    - kafka
+  networks:
+    - app-tier
 ````
 The application was "dockerized" by leveraging the following Dockerfile:
 ```` dockerfile
@@ -250,7 +263,6 @@ class App:
       "AUTO_OFFSET_RESET": os.environ.get("AUTO_OFFSET_RESET", "earliest"),
       "GROUP_ID": os.environ.get("GROUP_ID", "local_kafka_test"),
     }
-    print("Broker: ", self.config.get("BOOTSTRAP_SERVER"))
 ````
 The **setup method** creates the Kafka consumer and producer with the received configurations. 
 
