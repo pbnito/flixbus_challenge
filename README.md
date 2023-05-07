@@ -1,1 +1,31 @@
-# flixbux_challenge
+# Flix Challenge
+
+````
+docker exec kafka kafka-topics.sh --bootstrap-server kafka:9092 --list
+docker exec kafka kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic input_topic  --from-beginning
+docker exec kafka kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic output_topic  --property print.key=true --from-beginning
+````
+
+````
+docker-compose down
+docker-compose --env-file docker.env up -d
+
+````
+https://github.com/wurstmeister/kafka-docker/wiki/Connectivity
+
+docker exec kafka kafka-console-producer.sh --bootstrap-server kafka:9092 --topic input_topic --property "value.serializer=org.apache.kafka.common.serialization.StringSerializer" < data/input.json
+
+docker exec app python app/app.py
+docker run --network app-tier python:3.11
+
+
+kafka-topics.sh --bootstrap-server localhost:9093 --list
+kafka-topics.sh --create --if-not-exists --bootstrap-server localhost:9093 --partitions 1 --replication-factor 1 --topic input_topic
+kafka-topics.sh --create --if-not-exists --bootstrap-server localhost:9093  --partitions 1 --replication-factor 1 --topic output_topic
+kafka-console-producer.sh --bootstrap-server localhost:9093 --topic input_topic --property "value.serializer=org.apache.kafka.common.serialization.StringSerializer" < data/input.json
+
+
+kafka-console-consumer.sh --bootstrap-server localhost:9093 --topic output_topic  --property print.key=true --from-beginning
+
+
+https://github.com/dpkp/kafka-python/issues/1308?tdsourcetag=s_pctim_aiomsg
