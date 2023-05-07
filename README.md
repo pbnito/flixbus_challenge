@@ -1,4 +1,28 @@
 # Flix Challenge
+One Paragraph of project description goes here (to be completed)
+
+## Table of contents
+* [Getting Started](#getting-started)
+* [Project Structure](#project-structure)
+
+## Getting Started
+To run the exercise
+````
+./ci-job.sh
+````
+
+To check the output topic
+````
+kafka-console-consumer.sh --bootstrap-server localhost:9093 --topic output_topic  --property print.key=true --from-beginning
+
+````
+### Prerequisites
+
+What things you need to install the software and how to install them
+## Project Structure
+
+## Extras
+
 
 ````
 docker exec kafka kafka-topics.sh --bootstrap-server kafka:9092 --list
