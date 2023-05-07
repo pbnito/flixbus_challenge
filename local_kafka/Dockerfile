@@ -8,6 +8,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-ENV PATH=/root/.local/bin:$PATH
-
 CMD ["python", "app/app.py"]

@@ -21,7 +21,6 @@ services:
     hostname: kafka
     ports:
       - 9092:9092
-      - 9093:9093
     environment:
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
       - ALLOW_PLAINTEXT_LISTENER=yes
@@ -40,6 +39,8 @@ services:
       context: ./local_kafka
       dockerfile: Dockerfile
     container_name: app
+    env_file:
+      - local_kafka/local_kafka.env
     depends_on:
       - kafka
     networks:
