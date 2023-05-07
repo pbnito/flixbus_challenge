@@ -84,7 +84,7 @@ export INPUT_FILE_PATH=data/input.json
 Or just run:
 
 ````shell
-./env_variables.sh
+source env_variables.sh
 ````
 
 #### Kafka Cluster
