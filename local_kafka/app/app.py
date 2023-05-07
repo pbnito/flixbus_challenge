@@ -18,7 +18,7 @@ class App:
         :return: None
         """
         self.config = {
-            "BOOTSTRAP_SERVER": os.environ.get("BOOTSTRAP_SERVER", "kafka:9092"),
+            "BOOTSTRAP_SERVER": os.environ.get("KAFKA_BOOTSTRAP_SERVER", "kafka:9092"),
             "INPUT_TOPIC_NAME": os.environ.get("INPUT_TOPIC_NAME", "input_topic"),
             "OUTPUT_TOPIC_NAME": os.environ.get("OUTPUT_TOPIC_NAME", "output_topic"),
             "AUTO_OFFSET_RESET": os.environ.get("AUTO_OFFSET_RESET", "earliest"),

@@ -11,7 +11,7 @@ class TestTopology:
     def setup_class(self):
         os.environ["INPUT_TOPIC_NAME"] = "test-input-topic"
         os.environ["OUTPUT_TOPIC_NAME"] = "test-output-topic"
-        os.environ["BOOTSTRAP_SERVER"] = "localhost:9092"
+        os.environ["BOOTSTRAP_SERVER"] = "localhost:9093"
         self.app = App()
         self.app.consumer = Mock()
         self.app.producer = Mock()

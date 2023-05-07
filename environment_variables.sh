@@ -1,0 +1,4 @@
+export KAFKA_BOOTSTRAP_SERVER=kafka:9092
+export KAFKA_INPUT_TOPIC_NAME=input_topic
+export KAFKA_OUTPUT_TOPIC_NAME=output_topic
+export INPUT_FILE_PATH=data/input.json
