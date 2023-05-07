@@ -11,7 +11,13 @@ This project aims to solve the Flix Challenge.
     * [Kafka Cluster](#kafka-cluster)
     * [Create Kafka Topics and Populate Input Topic](#create-kafka-topics-and-populate-input-topic)
     * [Challenge Output](#challenge-output)
-* [Final Remarks](#final-remarks) 
+  * [Challenge Explained](#challenge-explained)
+    * [Kafka Cluster and App](#1-kafka-cluster-and-app)
+    * [Create Input and Output Topic](#2-create-input-and-output-topic)
+    * [Populate Input Topic](#3-populate-input-topic)
+    * [Python Transformer Application](#4-python-transformer-application)
+      * [Application Tests](#application-tests)
+    * [Parameterization](#5-parameterization)
 
 ## Prerequisites
 One needs to have docker installed.
@@ -352,5 +358,3 @@ One can change the following configurations without having to change the docker 
 [local_kafka.env](local_kafka/local_kafka.env)
 * AUTO_OFFSET_RESET (ex: earliest)
 * GROUP_ID (ex: local_kafka)
-
-## Final Remarks
