@@ -13,7 +13,7 @@ To run the exercise
 
 To check the output topic
 ````
-kafka-console-consumer.sh --bootstrap-server localhost:9093 --topic output_topic  --property print.key=true --from-beginning
+docker exec kafka kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic output_topic  --property print.key=true --from-beginning
 
 ````
 ### Prerequisites
