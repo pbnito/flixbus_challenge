@@ -5,7 +5,6 @@
 __pycache__/
 
 # Ignore configuration files
-*.env
 *.log
 *.conf
 
