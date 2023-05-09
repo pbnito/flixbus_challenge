@@ -62,7 +62,11 @@ To run the exercise:
 
 To check the output's topic content:
 ````shell
-docker exec kafka kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic output_topic  --property print.key=true --from-beginning
+docker exec kafka kafka-console-consumer.sh
+--bootstrap-server kafka:9092
+--topic output_topic
+--property print.key=true
+--from-beginning
 ````
 Clean up:
 ````shell
@@ -146,7 +150,11 @@ docker-compose up --no-deps app
 #### Challenge Output:
 To check if the messages were correctly writen to the output topic:
 ````shell
-docker exec kafka kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic output_topic  --property print.key=true --from-beginning
+docker exec kafka kafka-console-consumer.sh
+--bootstrap-server kafka:9092
+--topic output_topic
+--property print.key=true
+--from-beginning
 ````
 
 ### Challenge Explained
@@ -201,7 +209,8 @@ docker exec kafka kafka-topics.sh \
 ### 3. Populate Input Topic
 The input data can be found in the **input.json** file under the data folder.
 The data is passed to the kafka consumer using the respective kafka-cli command.
-File: [ingest_data.sh](kafka_cli/ingest_data.sh)
+* File: [ingest_data.sh](kafka_cli/ingest_data.sh)
+* Data: [input.json](data/input.json)
 
 Example:
 ````shell
