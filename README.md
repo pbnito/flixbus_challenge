@@ -62,10 +62,10 @@ To run the exercise:
 
 To check the output's topic content:
 ````shell
-docker exec kafka kafka-console-consumer.sh
-  --bootstrap-server kafka:9092
-  --topic output_topic
-  --property print.key=true
+docker exec kafka kafka-console-consumer.sh \
+  --bootstrap-server kafka:9092 \
+  --topic output_topic \
+  --property print.key=true \
   --from-beginning
 ````
 Clean up:
@@ -150,10 +150,10 @@ docker-compose up --no-deps app
 #### Challenge Output:
 To check if the messages were correctly writen to the output topic:
 ````shell
-docker exec kafka kafka-console-consumer.sh
-  --bootstrap-server kafka:9092
-  --topic output_topic
-  --property print.key=true
+docker exec kafka kafka-console-consumer.sh \
+  --bootstrap-server kafka:9092 \
+  --topic output_topic \
+  --property print.key=true \
   --from-beginning
 ````
 
